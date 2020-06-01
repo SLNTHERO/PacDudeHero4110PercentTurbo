@@ -4,9 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.4.0</string>
-        <key>fileName</key>
-        <string>C:/Users/JeZxLee/Desktop/PacDudeHeroIV110PercentTurbo/texturePackerFiles/PacDude4.tps</string>
+        <string>5.3.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -34,9 +32,9 @@
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
-        <string>json</string>
+        <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename>../images/PacDude4.png</filename>
+        <filename>../../PacDude4.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -58,7 +56,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
+        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -84,7 +82,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png8</enum>
+        <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -129,28 +127,12 @@
                 <uint>1</uint>
             </struct>
         </struct>
-        <key>andEngine</key>
-        <struct type="AndEngine">
-            <key>minFilter</key>
-            <enum type="AndEngine::MinFilter">Linear</enum>
-            <key>packageName</key>
-            <string>Texture</string>
-            <key>wrap</key>
-            <struct type="AndEngineWrap">
-                <key>s</key>
-                <enum type="AndEngineWrap::Wrap">Clamp</enum>
-                <key>t</key>
-                <enum type="AndEngineWrap::Wrap">Clamp</enum>
-            </struct>
-            <key>magFilter</key>
-            <enum type="AndEngine::MagFilter">MagLinear</enum>
-        </struct>
         <key>dataFileNames</key>
         <map type="GFileNameMap">
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../images/PacDude4.json</filename>
+                <filename>../../PacDude4.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -193,7 +175,7 @@
             <key>heuristicMask</key>
             <false/>
             <key>defaultPivotPoint</key>
-            <point_f>0.5,0.5</point_f>
+            <point_f>0,0</point_f>
             <key>writePivotPoints</key>
             <false/>
         </struct>
@@ -203,25 +185,14 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>155,25,310,50</rect>
+                <rect>158,33,315,65</rect>
                 <key>scale9Paddings</key>
-                <rect>155,25,310,50</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../images/16BitSoft-Logo.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>34,3,67,7</rect>
-                <key>scale9Paddings</key>
-                <rect>34,3,67,7</rect>
+                <rect>158,33,315,65</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -235,25 +206,14 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
                 <rect>160,120,320,240</rect>
                 <key>scale9Paddings</key>
                 <rect>160,120,320,240</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../images/Audio5js-Logo.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>38,14,75,28</rect>
-                <key>scale9Paddings</key>
-                <rect>38,14,75,28</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -316,6 +276,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -329,12 +291,14 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>63,10,126,19</rect>
+                <rect>63,10,125,19</rect>
                 <key>scale9Paddings</key>
-                <rect>63,10,126,19</rect>
+                <rect>63,10,125,19</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -343,6 +307,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -356,6 +322,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -373,6 +341,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -386,6 +356,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -399,12 +371,47 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
                 <rect>75,78,150,155</rect>
                 <key>scale9Paddings</key>
                 <rect>75,78,150,155</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/GamePadButton.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>48,48,96,96</rect>
+                <key>scale9Paddings</key>
+                <rect>48,48,96,96</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">../images/GamePadDOWN.png</key>
+            <key type="filename">../images/GamePadLEFT.png</key>
+            <key type="filename">../images/GamePadRIGHT.png</key>
+            <key type="filename">../images/GamePadUP.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9Paddings</key>
+                <rect>32,32,64,64</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -416,6 +423,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -425,67 +434,18 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">../images/Keyboard-Controls.png</key>
+            <key type="filename">../images/HowlerLogo.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>160,51,320,102</rect>
+                <rect>38,10,75,21</rect>
                 <key>scale9Paddings</key>
-                <rect>160,51,320,102</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../images/Level1.png</key>
-            <key type="filename">../images/Level1_Return.png</key>
-            <key type="filename">../images/Level2.png</key>
-            <key type="filename">../images/Level2_Return.png</key>
-            <key type="filename">../images/Level3.png</key>
-            <key type="filename">../images/Level3_Return.png</key>
-            <key type="filename">../images/Level4.png</key>
-            <key type="filename">../images/Level4_Return.png</key>
-            <key type="filename">../images/Original.png</key>
-            <key type="filename">../images/Original_Return.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>7,7,14,14</rect>
-                <key>scale9Paddings</key>
-                <rect>7,7,14,14</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../images/MapBG.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>32,32,64,64</rect>
-                <key>scale9Paddings</key>
-                <rect>32,32,64,64</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../images/Map_Border.png</key>
-            <key type="filename">../images/Map_Clear.png</key>
-            <key type="filename">../images/Map_Pac.png</key>
-            <key type="filename">../images/Map_Pellet.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>1,1,2,2</rect>
-                <key>scale9Paddings</key>
-                <rect>1,1,2,2</rect>
+                <rect>38,10,75,21</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -493,6 +453,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -506,6 +468,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -519,6 +483,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -532,6 +498,8 @@
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -541,10 +509,27 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">../images/Star.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>50,50,100,100</rect>
+                <key>scale9Paddings</key>
+                <rect>50,50,100,100</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">../images/WhiteLine.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
@@ -557,7 +542,98 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../images</filename>
+            <filename>../images/16BitSoft-Logo-Large.png</filename>
+            <filename>../images/Arcade-Room-01.png</filename>
+            <filename>../images/Arcade-Room-02.png</filename>
+            <filename>../images/BoundaryLEGO-White.png</filename>
+            <filename>../images/BoundaryLEGO.png</filename>
+            <filename>../images/Button.png</filename>
+            <filename>../images/ButtonSelectorLeft.png</filename>
+            <filename>../images/ButtonSelectorRight.png</filename>
+            <filename>../images/CobraLogo.png</filename>
+            <filename>../images/DOWN-Button.png</filename>
+            <filename>../images/DebugANY.png</filename>
+            <filename>../images/DebugDOWN.png</filename>
+            <filename>../images/DebugLEFT.png</filename>
+            <filename>../images/DebugRIGHT.png</filename>
+            <filename>../images/DebugUP.png</filename>
+            <filename>../images/Exit.png</filename>
+            <filename>../images/Firefox-Logo.png</filename>
+            <filename>../images/FloppyDisk.png</filename>
+            <filename>../images/GamePadButton.png</filename>
+            <filename>../images/GamePadDOWN.png</filename>
+            <filename>../images/GamePadLEFT.png</filename>
+            <filename>../images/GamePadRIGHT.png</filename>
+            <filename>../images/GamePadUP.png</filename>
+            <filename>../images/Ghost_Black1.png</filename>
+            <filename>../images/Ghost_Black2.png</filename>
+            <filename>../images/Ghost_Blue1.png</filename>
+            <filename>../images/Ghost_Blue2.png</filename>
+            <filename>../images/Ghost_Character.png</filename>
+            <filename>../images/Ghost_Character2.png</filename>
+            <filename>../images/Ghost_Cyan1.png</filename>
+            <filename>../images/Ghost_Cyan2.png</filename>
+            <filename>../images/Ghost_Eyes_DOWN.png</filename>
+            <filename>../images/Ghost_Eyes_LEFT.png</filename>
+            <filename>../images/Ghost_Eyes_RIGHT.png</filename>
+            <filename>../images/Ghost_Eyes_UP.png</filename>
+            <filename>../images/Ghost_Green1.png</filename>
+            <filename>../images/Ghost_Green2.png</filename>
+            <filename>../images/Ghost_Orange1.png</filename>
+            <filename>../images/Ghost_Orange2.png</filename>
+            <filename>../images/Ghost_Purple1.png</filename>
+            <filename>../images/Ghost_Purple2.png</filename>
+            <filename>../images/Ghost_Red1.png</filename>
+            <filename>../images/Ghost_Red2.png</filename>
+            <filename>../images/Ghost_Scared1.png</filename>
+            <filename>../images/Ghost_Scared2.png</filename>
+            <filename>../images/Ghost_Yellow1.png</filename>
+            <filename>../images/Ghost_Yellow2.png</filename>
+            <filename>../images/HowlerLogo.png</filename>
+            <filename>../images/LEFT-Button.png</filename>
+            <filename>../images/MsPacDude.png</filename>
+            <filename>../images/NameInputButton.png</filename>
+            <filename>../images/PDH4-Logo2.png</filename>
+            <filename>../images/PacDude2.png</filename>
+            <filename>../images/PacDude_Right.png</filename>
+            <filename>../images/Pause.png</filename>
+            <filename>../images/Pellet.png</filename>
+            <filename>../images/PixiJS-Logo.png</filename>
+            <filename>../images/Play.png</filename>
+            <filename>../images/Player_DOWN1.png</filename>
+            <filename>../images/Player_DOWN2.png</filename>
+            <filename>../images/Player_DOWN3.png</filename>
+            <filename>../images/Player_DOWN4.png</filename>
+            <filename>../images/Player_DOWN5.png</filename>
+            <filename>../images/Player_Die.png</filename>
+            <filename>../images/Player_LEFT1.png</filename>
+            <filename>../images/Player_LEFT2.png</filename>
+            <filename>../images/Player_LEFT3.png</filename>
+            <filename>../images/Player_LEFT4.png</filename>
+            <filename>../images/Player_LEFT5.png</filename>
+            <filename>../images/Player_RIGHT1.png</filename>
+            <filename>../images/Player_RIGHT2.png</filename>
+            <filename>../images/Player_RIGHT3.png</filename>
+            <filename>../images/Player_RIGHT4.png</filename>
+            <filename>../images/Player_RIGHT5.png</filename>
+            <filename>../images/Player_UP1.png</filename>
+            <filename>../images/Player_UP2.png</filename>
+            <filename>../images/Player_UP3.png</filename>
+            <filename>../images/Player_UP4.png</filename>
+            <filename>../images/Player_UP5.png</filename>
+            <filename>../images/Power_Pellet.png</filename>
+            <filename>../images/RIGHT-Button.png</filename>
+            <filename>../images/Screen-Fade-Black-Box.png</filename>
+            <filename>../images/Selector-Line.png</filename>
+            <filename>../images/SpeakerOFF.png</filename>
+            <filename>../images/SpeakerON.png</filename>
+            <filename>../images/Star.png</filename>
+            <filename>../images/Supermarket.png</filename>
+            <filename>../images/TV.png</filename>
+            <filename>../images/UP-Button.png</filename>
+            <filename>../images/Warehouse.png</filename>
+            <filename>../images/Warehouse_Sunrise.png</filename>
+            <filename>../images/WhiteLine.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

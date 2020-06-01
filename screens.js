@@ -621,7 +621,7 @@ function DisplayTitleScreen()
 			AudioVolumeIcon[0].y = ( 30-9999 );
 			AudioVolumeIcon[1].y = ( 30 );
 		}
-		
+/*		
 		if (isMobile === false)
 		{
 			FloppyDisk = new PIXI.Sprite(id["FloppyDisk.png"]);
@@ -650,7 +650,7 @@ function DisplayTitleScreen()
 
 			FloppyDisk.on( 'pointerdown', onClickFloppyDisk );
 		}
-
+*/
 		ButtonSelectedByKeyboard = 0;
 		
 		var offset = 43;
@@ -742,12 +742,12 @@ function DisplayTitleScreen()
 		ScreenFadeStatus = FadeOut;
 		NextScreenToDisplay = AboutScreen;
 	}
-//	else if (ButtonPressed === 5)
-//	{
-//		ScreenFadeStatus = FadeOut;
-//		noSleep.disable();
-//		window.open('http://16bitsoft.com','_self');
-//	}
+	else if (ButtonPressed === 5)
+	{
+		ScreenFadeStatus = FadeOut;
+		noSleep.disable();
+		window.open('http://16bitsoft.com','_self');
+	}
 		
 	if (ScreenFadeStatus === FadeOut && ScreenFadeAlpha === 1)
 	{
