@@ -621,7 +621,7 @@ function DisplayTitleScreen()
 			AudioVolumeIcon[0].y = ( 30-9999 );
 			AudioVolumeIcon[1].y = ( 30 );
 		}
-		
+/*		
 		FloppyDisk = new PIXI.Sprite(id["FloppyDisk.png"]);
 		FloppyDisk.anchor.set(0.5);
 		FloppyDisk.interactive = true;
@@ -633,7 +633,7 @@ function DisplayTitleScreen()
 		stage.addChild(FloppyDisk);
 
 		FloppyDisk.on( 'pointerdown', onClickFloppyDisk );
-
+*/
 		ButtonSelectedByKeyboard = 0;
 		
 		var offset = 43;
@@ -725,13 +725,13 @@ function DisplayTitleScreen()
 		ScreenFadeStatus = FadeOut;
 		NextScreenToDisplay = AboutScreen;
 	}
-	else if (ButtonPressed === 5)
+/*	else if (ButtonPressed === 5)
 	{
 		ScreenFadeStatus = FadeOut;
 		noSleep.disable();
 		window.open('http://16bitsoft.com','_self');
 	}
-		
+*/		
 	if (ScreenFadeStatus === FadeOut && ScreenFadeAlpha === 1)
 	{
 		stage.removeChild(titleBG);
@@ -1314,6 +1314,10 @@ function SetupAboutScreenTexts()
 
 	AddStaffLineToBuffer(0, "Sound Effects Compiled & Edited By:");
 	AddStaffLineToBuffer(1, "''JeZxLee''");
+
+	AddStaffLineToBuffer(0, "Support Game Designers/Programmers/Testers:");
+	AddStaffLineToBuffer(1, "''Doatheman''");
+	AddStaffLineToBuffer(1, "''mattmatteh''");
 
 	AddStaffLineToBuffer(0, "Image Sprites Packed By:");
 	AddStaffLineToBuffer(1, "''Texture Packer''");

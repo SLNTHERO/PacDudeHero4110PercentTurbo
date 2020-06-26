@@ -240,7 +240,7 @@ function InitializeHighScores()
 		HighScoresName[gameMode][0] = "JeZxLee";
 		HighScoresName[gameMode][1] = "Doatheman";
 		HighScoresName[gameMode][2] = "mattmatteh";
-		HighScoresName[gameMode][3] = "PixiJSv4";
+		HighScoresName[gameMode][3] = "PixiJSv5";
 		HighScoresName[gameMode][4] = "Howler.js";
 		HighScoresName[gameMode][5] = "D.J. Fading Twilight";
 		HighScoresName[gameMode][6] = "WebGL";
