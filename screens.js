@@ -1255,7 +1255,7 @@ function AddStaffLineToBuffer(blue, text)
 		else  y = 30;
 	}
 	
-	if (text === "''A 110% By Team www.16BitSoft.com!''")	y+=240;
+	if (text === "''A 110% By Team www.16BitSoft.com!''")	y+=210;
 	
 	StaffTextY[StaffMaxIndex] = (StaffTextY[StaffMaxIndex-1]+=y);
 	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, text, 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
@@ -1318,6 +1318,10 @@ function SetupAboutScreenTexts()
 	AddStaffLineToBuffer(0, "Support Game Designers/Programmers/Testers:");
 	AddStaffLineToBuffer(1, "''Doatheman''");
 	AddStaffLineToBuffer(1, "''mattmatteh''");
+
+	AddStaffLineToBuffer(0, "PixiJS Version 4 To PixiJS Version 5 Conversion By:");
+	AddStaffLineToBuffer(1, "''jonforum''");
+	AddStaffLineToBuffer(1, "''bubamara''");
 
 	AddStaffLineToBuffer(0, "Image Sprites Packed By:");
 	AddStaffLineToBuffer(1, "''Texture Packer''");
