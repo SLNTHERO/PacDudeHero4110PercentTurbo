@@ -19,7 +19,7 @@ var MouseCoordinates = new PIXI.Point;
 
 var Container = PIXI.Container,
 	autoDetectRenderer = PIXI.autoDetectRenderer,
-	loader = PIXI.loader,
+	loader = PIXI.Loader.shared,
 	resources = PIXI.loader.resources,
 	TextureCache = PIXI.utils.TextureCache,
 	Texture = PIXI.Texture,

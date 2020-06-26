@@ -242,6 +242,8 @@ function CheckAndroidOrientation()
 //--------------------------------------------------------------------------------------------------------------
 function CheckForBrowserResize(forceResize)
 {
+//	DONTRESIZE = true;
+	
 	if (DONTRESIZE === true)
 	{
 		renderer.resize( Math.floor(OriginalCanvasWidth), Math.floor(OriginalCanvasHeight) );
