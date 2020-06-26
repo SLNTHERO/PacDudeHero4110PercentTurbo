@@ -135,32 +135,7 @@ function GetInput()
 		ScreenFadeStatus = FadeOut;
 		DelayAllUserInput = 20;
 	}
-/*
-	var newMouseX = Math.floor( MouseCoordinates.x / (widthScale) );
-	var newMouseY = Math.floor( MouseCoordinates.y / (heightScale) );
-	var fingerOnButton = false;
-	if (isMobile === true)
-	{
-		if (ScreenFadeStatus === FadeNone)
-		{
-			if (GamePadButton[0] !== null)
-			{
-				if ( newMouseX > (GamePadButton[0].x - 96) && newMouseX < (GamePadButton[0].x + 96) && newMouseY > (GamePadButton[0].y - 96) && newMouseY < (GamePadButton[0].y + 96) )
-				{
-					fingerOnButton = true
-				}
-			}
-				
-			if (GamePadButton[1] !== null)
-			{
-				if ( newMouseX > (GamePadButton[1].x - 96) && newMouseX < (GamePadButton[1].x + 96) && newMouseY > (GamePadButton[1].y - 96) && newMouseY < (GamePadButton[1].y + 96) )
-				{
-					fingerOnButton = true
-				}
-			}
-		}
-	}
-*/	
+	
 	MouseX = Math.floor( MouseCoordinates.x / (widthScale) );
 	MouseY = Math.floor( MouseCoordinates.y / (heightScale) );
 	

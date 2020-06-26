@@ -292,8 +292,8 @@ function ProcessButtons()
 		{
 			FloppyDisk.scale.x = .3;
 		
-			if (isMobile === false)  window.open('http://pacdudehero.com/Source/PacDudeHeroIV110PercentTurbo-Howler.zip','_self');
-			else  window.open('http://play.google.com/store/apps/details?id=org.mozilla.firefox&hl=en','_self');
+			if (isMobile === false)  window.open('https://github.com/SLNTHERO/PacDudeHero4110PercentTurbo','_self');
+			else  window.open('https://github.com/SLNTHERO/PacDudeHero4110PercentTurbo','_self');
 		}
 		else  FloppyDisk.scale.x = .3;
 

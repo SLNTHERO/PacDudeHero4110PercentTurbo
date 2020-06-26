@@ -621,36 +621,19 @@ function DisplayTitleScreen()
 			AudioVolumeIcon[0].y = ( 30-9999 );
 			AudioVolumeIcon[1].y = ( 30 );
 		}
-/*		
-		if (isMobile === false)
-		{
-			FloppyDisk = new PIXI.Sprite(id["FloppyDisk.png"]);
-			FloppyDisk.anchor.set(0.5);
-			FloppyDisk.interactive = true;
-			FloppyDisk.buttonMode = true;
-			FloppyDisk.scale.x = .35;
-			FloppyDisk.scale.y = .35;
-			FloppyDisk.x = ( 55 );
-			FloppyDisk.y = ( 420 );
-			stage.addChild(FloppyDisk);
+		
+		FloppyDisk = new PIXI.Sprite(id["FloppyDisk.png"]);
+		FloppyDisk.anchor.set(0.5);
+		FloppyDisk.interactive = true;
+		FloppyDisk.buttonMode = true;
+		FloppyDisk.scale.x = .35;
+		FloppyDisk.scale.y = .35;
+		FloppyDisk.x = ( 55 );
+		FloppyDisk.y = ( 420 );
+		stage.addChild(FloppyDisk);
 
-			FloppyDisk.on( 'pointerdown', onClickFloppyDisk );
-		}
-		else 
-		{
-			FloppyDisk = new PIXI.Sprite(id["Firefox-Logo.png"]);
-			FloppyDisk.anchor.set(0.5);
-			FloppyDisk.interactive = true;
-			FloppyDisk.buttonMode = true;
-			FloppyDisk.scale.x = .3;
-			FloppyDisk.scale.y = .3;
-			FloppyDisk.x = ( 55-5 );
-			FloppyDisk.y = ( 420-19+10 );
-			stage.addChild(FloppyDisk);
+		FloppyDisk.on( 'pointerdown', onClickFloppyDisk );
 
-			FloppyDisk.on( 'pointerdown', onClickFloppyDisk );
-		}
-*/
 		ButtonSelectedByKeyboard = 0;
 		
 		var offset = 43;
@@ -663,8 +646,8 @@ function DisplayTitleScreen()
 
 		PlaceTextOntoScreen(25, TextCenter, "''"+HighScoresName[GameMode][0]+"'' Scored "+HighScoresScore[GameMode][0], 320, 170, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
 
-		PlaceTextOntoScreen(25, TextCenter, "©2017 By Team ''www.16BitSoft.com''", 320, 480-20, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
-		PlaceTextOntoScreen(13, TextRight, "Version 4.0.0 Final", 2, 480-10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
+		PlaceTextOntoScreen(25, TextCenter, "©2020 By Team ''www.16BitSoft.com''", 320, 480-20, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
+		PlaceTextOntoScreen(13, TextRight, "Version 4.5.6 Final", 2, 480-10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
 
 		FPSmessage = PlaceTextOntoScreen(15, TextRight, "FPS=", 19, 10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 3);
 		
@@ -1259,6 +1242,31 @@ function DisplayHighScoresScreen()
 }	
 
 //--------------------------------------------------------------------------------------------------------------
+function AddStaffLineToBuffer(blue, text)
+{
+	StaffBlue[StaffMaxIndex] = blue;
+	var y = 0;
+	
+	if (StaffMaxIndex === 7)  y+=20
+	else
+	{
+		if (StaffBlue[StaffMaxIndex] === 0 && StaffBlue[StaffMaxIndex-1] === 1)  y = 90;
+		else if (StaffBlue[StaffMaxIndex] === 1 && StaffBlue[StaffMaxIndex-1] === 1)  y = 30;
+		else  y = 30;
+	}
+	
+	if (text === "''A 110% By Team www.16BitSoft.com!''")	y+=240;
+	
+	StaffTextY[StaffMaxIndex] = (StaffTextY[StaffMaxIndex-1]+=y);
+	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, text, 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
+	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+
+//console.log("Index="+StaffMaxIndex+"/Y="+StaffTextY[StaffMaxIndex]);
+
+	StaffMaxIndex+=1;
+}
+
+//--------------------------------------------------------------------------------------------------------------
 function SetupAboutScreenTexts()
 {
 	StaffMaxIndex = 6;
@@ -1268,622 +1276,103 @@ function SetupAboutScreenTexts()
 	StaffMaxIndex++;
 	StaffBlue[StaffMaxIndex] = 0;
 	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(15, TextRight, "TM", 135, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
+	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(15, TextRight, "TM", 135-8, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
 
 	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	screenY+=20;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''PacDude Hero IV 110% Turbo''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "©2017 By Team '''www.16BitSoft.com''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Original Concept By:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Namco®", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-		
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "WebGL/HTML5 Graphic Engine:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''PixiJSv4''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.PixiJS.com", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-		
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "HTML5 Audio Engine:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Howler.js''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.HowlerJS.com", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Image Sprites Packed By:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Texture Packer''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.CodeAndWeb.com/TexturePacker", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "JavaScript Source Code Typed In & Tested With:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''NotePad++''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.Notepad-Plus-Plus.org", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "''PacDude Hero IV 110% Turbo''");
+	AddStaffLineToBuffer(1, "©2020 By Team '''www.16BitSoft.com''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "PNG Sprite Graphics Made In:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''NeoPaint 5''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.NeoSoftware.com/NPW.html", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Original Concept By:");
+	AddStaffLineToBuffer(1, "Namco®");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Audio Edited In:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''GoldWave''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.GoldWave.com", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "WebGL/HTML5 Graphic Engine:");
+	AddStaffLineToBuffer(1, "''PixiJSv5''");
+	AddStaffLineToBuffer(1, "www.PixiJS.com");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "95% Of Video Game Built On:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "A JeZxLee Pro-Built Desktop", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Running Genuine Manjaro KDE 64Bit Linux", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "(Code Named: ''JetFire'')", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "HTML5 Audio Engine:");
+	AddStaffLineToBuffer(1, "''Howler.js''");
+	AddStaffLineToBuffer(1, "www.HowlerJS.com");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Video Game Optimized On:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "A Hyper-Custom Thin Client Desktop", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Running Genuine Manjaro KDE 64Bit Linux", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "(Code Named: ''BumbleBee'')", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "''1993 Mustang GT Cobra 5.0™'' 2-D Game Engine By:");
+	AddStaffLineToBuffer(1, "''JeZxLee''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Video Game Finished On:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "A JeZxLee Pro-Built Super Desktop", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Running Genuine Manjaro KDE 64Bit Linux", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "(Code Named: ''Optimus Prime'')", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Lead Game Designer:");
+	AddStaffLineToBuffer(1, "''JeZxLee''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''1993 Mustang GT Cobra 5.0™'' 2-D Game Engine By:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''JeZxLee''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Lead Game Programmer:");
+	AddStaffLineToBuffer(1, "''JeZxLee''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Lead Game Designer:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''JeZxLee''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Lead Game Tester:");
+	AddStaffLineToBuffer(1, "''JeZxLee''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Lead Game Programmer:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''JeZxLee''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Lead Graphic Artist:");
+	AddStaffLineToBuffer(1, "''JeZxLee''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Lead Game Tester:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''JeZxLee''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Lead Music Artist:");
+	AddStaffLineToBuffer(1, "''D.J. Fading Twilight''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Lead Graphic Artist:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''JeZxLee''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Sound Effects Compiled & Edited By:");
+	AddStaffLineToBuffer(1, "''JeZxLee''");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Lead Music/Effects Artist:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''D.J. Fading Twilight''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
+	AddStaffLineToBuffer(0, "Image Sprites Packed By:");
+	AddStaffLineToBuffer(1, "''Texture Packer''");
+	AddStaffLineToBuffer(1, "www.CodeAndWeb.com/TexturePacker");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Support Game Programmers:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''alex_h''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Jinz''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''bubamara''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''ivan.popelyshev''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''themoonrat''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''mattstyles''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''xerver''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''zap0''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''ArRay_''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''jonforum''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''LunarJetman''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''EvanR''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''MrFlibble''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Nesh108''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''magig''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''heraclitus_''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Exca''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Umz''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''bmarotta''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	
-	
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Game Beta Testers:", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''Mekka23''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''PandaKapow''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''patwotrik''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''MarioMario456GD''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "''i0Vi''", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
+	AddStaffLineToBuffer(0, "JavaScript Source Code Typed In:");
+	AddStaffLineToBuffer(1, "''NotePad++''");
+	AddStaffLineToBuffer(1, "www.Notepad-Plus-Plus.org");
 
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "Special Thanks To NewGrounds For Internet Publishing!", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	if (StaffBlue[StaffMaxIndex] === 0)  screenY+=90;
-	else  screenY+=30;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "www.NewGrounds.com", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-		
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	screenY+=(640/2);
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "A 110% By Team ''www.16BitSoft.com''!", 320, StaffTextY[StaffMaxIndex], 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 1;
-	screenY+=8;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "A 110% By Team ''www.16BitSoft.com''!", 320, StaffTextY[StaffMaxIndex], .5, .5, .5, .5, .5, .5, 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	//--------------------------------------------------------------
-	StaffMaxIndex++;
-	StaffBlue[StaffMaxIndex] = 0;
-	screenY-=4;
-	StaffTextY[StaffMaxIndex] = screenY;
-	StaffTextTextIndex[StaffMaxIndex] = PlaceTextOntoScreen(25, TextCenter, "A 110% By Team ''www.16BitSoft.com''!", 320, StaffTextY[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 1, 1, StaffBlue[StaffMaxIndex], 0, 0, 0, 1, 7);
-	TextSprites[ StaffTextTextIndex[StaffMaxIndex] ].renderable = false;
-	
+	AddStaffLineToBuffer(0, "PNG Sprite Graphics Made In:");
+	AddStaffLineToBuffer(1, "''NeoPaint''");
+	AddStaffLineToBuffer(1, "www.NeoSoftware.com/NPW.html");
+
+	AddStaffLineToBuffer(0, "Audio Edited In:");
+	AddStaffLineToBuffer(1, "''GoldWave''");
+	AddStaffLineToBuffer(1, "www.GoldWave.com");
+
+	AddStaffLineToBuffer(0, "Game Made On A JeZxLee Pro-Built Desktop:");
+	AddStaffLineToBuffer(1, "Desktop Code Name: ''JetFire''");
+	AddStaffLineToBuffer(1, "Genuine ''openSUSE Tumbleweed KDE 64Bit'' Linux O.S.");
+	AddStaffLineToBuffer(1, "VNC'ing Into A ''Windows 10 Pro 64Bit'' Desktop");
+
+	AddStaffLineToBuffer(0, "Support Game Programmers:");
+	AddStaffLineToBuffer(1, "''alex_h''");
+	AddStaffLineToBuffer(1, "''Jinz''");
+	AddStaffLineToBuffer(1, "''bubamara''");
+	AddStaffLineToBuffer(1, "''ivan.popelyshev''");
+	AddStaffLineToBuffer(1, "''themoonrat''");
+	AddStaffLineToBuffer(1, "''mattstyles''");
+	AddStaffLineToBuffer(1, "''xerver''");
+	AddStaffLineToBuffer(1, "''zap0''");
+	AddStaffLineToBuffer(1, "''ArRay_''");
+	AddStaffLineToBuffer(1, "''jonforum''");
+	AddStaffLineToBuffer(1, "''LunarJetman''");
+	AddStaffLineToBuffer(1, "''EvanR''");
+	AddStaffLineToBuffer(1, "''alex_h''");
+	AddStaffLineToBuffer(1, "''MrFlibble''");
+	AddStaffLineToBuffer(1, "''Nesh108''");
+	AddStaffLineToBuffer(1, "''magig''");
+	AddStaffLineToBuffer(1, "''heraclitus_''");
+	AddStaffLineToBuffer(1, "''Exca''");
+	AddStaffLineToBuffer(1, "''Umz''");
+	AddStaffLineToBuffer(1, "''bmarotta''");
+
+	AddStaffLineToBuffer(0, "Support Game Testers:");
+	AddStaffLineToBuffer(1, "''Mekka23''");
+	AddStaffLineToBuffer(1, "''patwotrik''");
+	AddStaffLineToBuffer(1, "''MarioMario456GD''");
+	AddStaffLineToBuffer(1, "''i0Vi''");
+	AddStaffLineToBuffer(1, "''You!''");
+
+	AddStaffLineToBuffer(0, "Special Thanks To:");
+	AddStaffLineToBuffer(1, "''www.Itch.io''");
+	AddStaffLineToBuffer(1, "For Internet Publishing");
+
+	AddStaffLineToBuffer(0, "''A 110% By Team www.16BitSoft.com!''");
+
+	StaffMaxIndex-=1;
+
 	var index;
 	for ( index = 7; index < (StaffMaxIndex+1); index++ )
 	{
