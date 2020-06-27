@@ -20,7 +20,7 @@ var MouseCoordinates = new PIXI.Point;
 var Container = PIXI.Container,
 	autoDetectRenderer = PIXI.autoDetectRenderer,
 	loader = PIXI.Loader.shared,
-	resources = PIXI.Loader.shared.resources,//PIXI.loader.resources,
+	resources = PIXI.Loader.shared.resources,
 	TextureCache = PIXI.utils.TextureCache,
 	Texture = PIXI.Texture,
 	Sprite = PIXI.Sprite,
@@ -52,6 +52,8 @@ function SetFrameRate()
 //--------------------------------------------------------------------------------------------------------------
 function setup()
 {
+PIXI.settings.PREFER_ENV = PIXI.ENV.WEBGL;
+
 	if (  (typeof window.orientation !== "undefined") || ( navigator.userAgent.indexOf('IEMobile') !== -1 )  )  isMobile = true;
 
 //isMobile = true;	
@@ -65,7 +67,7 @@ function setup()
 	var app = new PIXI.Application(OriginalCanvasWidth, OriginalCanvasHeight, {backgroundColor: "Black"});
 	document.body.appendChild(app.view);
 		
-	renderer = autoDetectRenderer(OriginalCanvasWidth, OriginalCanvasHeight);
+	renderer = new PIXI.Renderer({ width: OriginalCanvasWidth, height: OriginalCanvasHeight, transparent: false, autoDensity: true });
 	document.body.appendChild(renderer.view);
 		
 	stage = new Container(),
@@ -145,7 +147,7 @@ function setup()
 
 	FrameRate = 19;
 	
-	enableNoSleep();
+//	enableNoSleep();
 	
 	gameLoop();
 }

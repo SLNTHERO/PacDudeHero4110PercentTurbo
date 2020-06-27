@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>5.3.0</string>
+        <string>5.4.0</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>pixijs4</string>
         <key>textureFileName</key>
-        <filename>../../PacDude4.png</filename>
+        <filename>../images/PacDude4.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -56,7 +56,7 @@
         <key>jxrCompressionLevel</key>
         <uint>0</uint>
         <key>ditherType</key>
-        <enum type="SettingsBase::DitherType">NearestNeighbour</enum>
+        <enum type="SettingsBase::DitherType">PngQuantLow</enum>
         <key>backgroundColor</key>
         <uint>0</uint>
         <key>libGdx</key>
@@ -82,7 +82,7 @@
         <key>atfFormats</key>
         <string></string>
         <key>textureFormat</key>
-        <enum type="SettingsBase::TextureFormat">png</enum>
+        <enum type="SettingsBase::TextureFormat">png8</enum>
         <key>borderPadding</key>
         <uint>0</uint>
         <key>maxTextureSize</key>
@@ -132,7 +132,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../../PacDude4.json</filename>
+                <filename>../images/PacDude4.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -200,7 +200,6 @@
             <key type="filename">../images/Arcade-Room-02.png</key>
             <key type="filename">../images/Screen-Fade-Black-Box.png</key>
             <key type="filename">../images/Supermarket.png</key>
-            <key type="filename">../images/TV.png</key>
             <key type="filename">../images/Warehouse.png</key>
             <key type="filename">../images/Warehouse_Sunrise.png</key>
             <struct type="IndividualSpriteSettings">
@@ -418,7 +417,6 @@
             <key type="filename">../images/Ghost_Character.png</key>
             <key type="filename">../images/Ghost_Character2.png</key>
             <key type="filename">../images/MsPacDude.png</key>
-            <key type="filename">../images/PacDude2.png</key>
             <key type="filename">../images/PacDude_Right.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -594,7 +592,6 @@
             <filename>../images/MsPacDude.png</filename>
             <filename>../images/NameInputButton.png</filename>
             <filename>../images/PDH4-Logo2.png</filename>
-            <filename>../images/PacDude2.png</filename>
             <filename>../images/PacDude_Right.png</filename>
             <filename>../images/Pause.png</filename>
             <filename>../images/Pellet.png</filename>
@@ -629,7 +626,6 @@
             <filename>../images/SpeakerON.png</filename>
             <filename>../images/Star.png</filename>
             <filename>../images/Supermarket.png</filename>
-            <filename>../images/TV.png</filename>
             <filename>../images/UP-Button.png</filename>
             <filename>../images/Warehouse.png</filename>
             <filename>../images/Warehouse_Sunrise.png</filename>

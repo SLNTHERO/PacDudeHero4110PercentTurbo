@@ -145,7 +145,7 @@ function LoadScreenFade()
 	ScreenFadeBlackBox = new PIXI.Sprite(id["Screen-Fade-Black-Box.png"]);
 	ScreenFadeBlackBox.anchor.set(0.5);
 	ScreenFadeBlackBox.x = ( OriginalCanvasWidth/2 );
-	ScreenFadeBlackBox.y = ( 480/2 );
+	ScreenFadeBlackBox.y = ( OriginalCanvasHeight/2 );
 	stage.addChild(ScreenFadeBlackBox);
 
 	ScreenFadeBlackBox.on( 'pointerdown', onClickChangeScreen );
@@ -322,8 +322,8 @@ function DisplayBetaTestScreen()
 		renderer.backgroundColor = PIXI.utils.rgb2hex([.85, .85, .85]);
 
 		PlaceTextOntoScreen(35, TextCenter, "''PacDude Hero IV 110% Turbo™''",320, 30, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
-		PlaceTextOntoScreen(25, TextCenter, "(Testing Beta3 110% Final Version)",320, 60, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
-		PlaceTextOntoScreen(30, TextCenter, "©2017 By Team ''www.16BitSoft.com''",320, 90, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
+		PlaceTextOntoScreen(25, TextCenter, "(Version 4.5.6.x 110% Final)",320, 60, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
+		PlaceTextOntoScreen(30, TextCenter, "©2020 By Team ''www.16BitSoft.com''",320, 90, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 
 		WhiteLine[0] = new PIXI.Sprite(id["WhiteLine.png"]);
 		WhiteLine[0].anchor.set(0.5);
@@ -357,8 +357,8 @@ function DisplayBetaTestScreen()
 		WhiteLine[2].tint = PIXI.utils.rgb2hex([1, 1, 1]);
 		stage.addChild(WhiteLine[2]);
 		
-		PlaceTextOntoScreen(25, TextCenter, "Send Bugs To:",320, 355+5, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
-		PlaceTextOntoScreen(38, TextCenter, "''JeZxLee@16BitSoft.com''",320, 355+40, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
+		PlaceTextOntoScreen(25, TextCenter, "Post Bugs Or Suggestions To:",320, 355+5, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
+		PlaceTextOntoScreen(38, TextCenter, "This www.Itch.io Page!",320, 355+40, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 
 		WhiteLine[3] = new PIXI.Sprite(id["WhiteLine.png"]);
 		WhiteLine[3].anchor.set(0.5);
@@ -1643,12 +1643,6 @@ function DisplayPlayingGameScreen()
 		PauseBG.x = ( OriginalCanvasWidth/2 );
 		PauseBG.y = ( 480/2 );
 		stage.addChild(PauseBG);
-
-		TVScreen = new PIXI.Sprite(id["TV.png"]);
-		TVScreen.anchor.set(0.5);
-		TVScreen.x = ( OriginalCanvasWidth/2 );
-		TVScreen.y = ( 480/2 );
-		stage.addChild(TVScreen);
 
 		FPSmessage = PlaceTextOntoScreen(15, TextRight, "FPS=", 19, 10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 3);
 		
