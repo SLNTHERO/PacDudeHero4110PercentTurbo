@@ -1,53 +1,53 @@
 // "screens.js"
 
-var DEBUGGame = false;
+let DEBUGGame = false;
 
-var BetaTestScreen = 0;
-var CobraEngineScreen = 1;
-var AndroidFirefoxScreen = 2;
-var SixteenBitSoftScreen = 3;
-var TitleScreen = 4;
-var OptionsScreen = 5;
-var HowToPlayScreen = 6;
-var HighScoresScreen = 7;
-var AboutScreen = 8;
-var PlayingGameScreen = 9;
-var IntroScreen = 10;
-var EndingScreen = 11;
-var NewHighScoreNameInputScreen = 12;
-var ScreenToDisplay = CobraEngineScreen;
-var NextScreenToDisplay = SixteenBitSoftScreen;
+let BetaTestScreen = 0;
+let CobraEngineScreen = 1;
+let AndroidFirefoxScreen = 2;
+let SixteenBitSoftScreen = 3;
+let TitleScreen = 4;
+let OptionsScreen = 5;
+let HowToPlayScreen = 6;
+let HighScoresScreen = 7;
+let AboutScreen = 8;
+let PlayingGameScreen = 9;
+let IntroScreen = 10;
+let EndingScreen = 11;
+let NewHighScoreNameInputScreen = 12;
+let ScreenToDisplay = BetaTestScreen;//CobraEngineScreen;
+let NextScreenToDisplay = CobraEngineScreen;//SixteenBitSoftScreen;
 
-var FadeIn = -1;
-var FadeNone = 0;
-var FadeOut = 1;
-var ScreenFadeStatus = FadeIn;
-var ScreenFadeAlpha = 1;
-var ScreenChanged = true;
+let FadeIn = -1;
+let FadeNone = 0;
+let FadeOut = 1;
+let ScreenFadeStatus = FadeIn;
+let ScreenFadeAlpha = 1;
+let ScreenChanged = true;
 
-var ScreenDisplayTimer = 0;
+let ScreenDisplayTimer = 0;
 
-var StaffTextTextIndex = new Array(200);
-var StaffBlue = new Array(200);
-var StaffTextY = new Array(200);
-var StaffTextIsOff = new Array(200);
-var StaffMaxIndex = -1;
+let StaffTextTextIndex = new Array(200);
+let StaffBlue = new Array(200);
+let StaffTextY = new Array(200);
+let StaffTextIsOff = new Array(200);
+let StaffMaxIndex = -1;
 
-var OptionsTexts = new Array(7);
-var DontChangeArrowSetSelected = false;
+let OptionsTexts = new Array(7);
+let DontChangeArrowSetSelected = false;
 
-var SecretCodeOne = 0;
-var SecretCodeTwo = 0;
-var SecretCodeThree = 0;
-var SecretCodeFour = 0;
-var SecretCodeText = new Array(4);
-var SecretCodeTotal = 0;
+let SecretCodeOne = 0;
+let SecretCodeTwo = 0;
+let SecretCodeThree = 0;
+let SecretCodeFour = 0;
+let SecretCodeText = new Array(4);
+let SecretCodeTotal = 0;
 
-var EndingSceneAnimationFrame = 0;
+let EndingSceneAnimationFrame = 0;
 
-var OrientationText;
+let OrientationText;
 
-var index;
+//let index;
 
 //--------------------------------------------------------------------------------------------------------------
 function LoadGamePad()
@@ -206,6 +206,7 @@ function ProcessNextScreen()
 //--------------------------------------------------------------------------------------------------------------
 function play()
 {	
+	var index;
 	var CurrentTime = new Date().getTime();
 	if (CurrentTime > NextSecond)
 	{
@@ -391,8 +392,11 @@ function DisplayBetaTestScreen()
 
 	if (ScreenFadeStatus === FadeOut && ScreenFadeAlpha === 1)
 	{
-		if (CurrentMusicPlaying !== -1)  MusicHowler[CurrentMusicPlaying].stop();
-		
+//		if (CurrentMusicPlaying !== -1)  MusicHowler[CurrentMusicPlaying].stop();
+
+		SetVolumeOfAudioEngine();
+		PlayMusic("BGM-Test");
+
 		renderer.backgroundColor = PIXI.utils.rgb2hex([0, 0, 0]);
 
 		var index;
@@ -1125,6 +1129,8 @@ function DisplayHowToPlayScreen()
 //--------------------------------------------------------------------------------------------------------------
 function DisplayHighScoresScreen()
 {
+	var index;
+
 	if (ScreenFadeStatus === FadeIn && ScreenChanged === true)
 	{
 		titleBG = new PIXI.Sprite(id["Arcade-Room-02.png"]);
@@ -1501,6 +1507,8 @@ function DisplayAboutScreen()
 //--------------------------------------------------------------------------------------------------------------
 function PutAllSpritesOffScreen()
 {
+	var index;
+
 	for (index = 0; index < 6; index++)
 	{
 		PacDudeFrames[UP][index].x = ( OriginalCanvasWidth/2 );
@@ -1571,6 +1579,8 @@ function PutAllSpritesOffScreen()
 //--------------------------------------------------------------------------------------------------------------
 function DisplayPlayingGameScreen()
 {
+	var index;
+
 	if (ScreenFadeStatus === FadeIn && ScreenChanged === true)
 	{
 		SetFrameRate();
@@ -1782,7 +1792,7 @@ function DisplayPlayingGameScreen()
 	var indexPellet = 0;
 	var indexPowerPellet = 0;
 	
-	var indexDebugDir = 0;			
+	var indexDebugDir = 0;
 	
     for (playfieldY = startYindex; playfieldY < startYindex+11; playfieldY++)
     {
@@ -2149,7 +2159,6 @@ function DisplayIntroScreen()
 
 	var frameSkip = ( (1000/FrameRate) / FPS );
 
-	
     if (GhostRedPlusEyesIntro[0].x > 470)
     {
         GhostRedPlusEyesIntro[0].x-=(2*frameSkip);

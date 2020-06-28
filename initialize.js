@@ -1,23 +1,23 @@
 // "initialize.js"
 
-var DONTRESIZE = true;//false;
+let DONTRESIZE = false;//true;//false;
 
-var OriginalCanvasWidth = 640;
-var OriginalCanvasHeight = 480;
+let OriginalCanvasWidth = 640;
+let OriginalCanvasHeight = 480;
 
-var CurrentBrowserWidth = (window.innerWidth + 1);
-var CurrentBrowserHeight = (window.innerHeight + 1);
+let CurrentBrowserWidth = (window.innerWidth + 1);
+let CurrentBrowserHeight = (window.innerHeight + 1);
 
-var widthScale = 1;
-var heightScale = 1;
+let widthScale = 1;
+let heightScale = 1;
 
-var isMobile = false;
-var AndroidChrome = false;
-var AndroidFirefox = false;
+let isMobile = false;
+let AndroidChrome = false;
+let AndroidFirefox = false;
 
-var MouseCoordinates = new PIXI.Point;
+let MouseCoordinates = new PIXI.Point;
 
-var Container = PIXI.Container,
+let Container = PIXI.Container,
 	autoDetectRenderer = PIXI.autoDetectRenderer,
 	loader = PIXI.Loader.shared,
 	resources = PIXI.Loader.shared.resources,
@@ -27,17 +27,18 @@ var Container = PIXI.Container,
 	Text = PIXI.Text,
 	Graphics = PIXI.Graphics;
 
-var renderer;
-var stage, id;
+const renderer = new PIXI.Renderer({ width: OriginalCanvasWidth, height: OriginalCanvasHeight, transparent: false, autoDensity: true });
+let stage;
+let id;
 
-var TouchNone = 0;
-var TouchStart = 1;
-var TouchEnd = 2;
-var TouchCancel = 3;
-var TouchMove = 4;
-var TouchInput = TouchNone;
+let TouchNone = 0;
+let TouchStart = 1;
+let TouchEnd = 2;
+let TouchCancel = 3;
+let TouchMove = 4;
+let TouchInput = TouchNone;
 
-var SecondTouchCoordinates = new PIXI.Point; 
+let SecondTouchCoordinates = new PIXI.Point;
 
 //--------------------------------------------------------------------------------------------------------------
 function SetFrameRate()
@@ -52,7 +53,7 @@ function SetFrameRate()
 //--------------------------------------------------------------------------------------------------------------
 function setup()
 {
-	PIXI.settings.PREFER_ENV = PIXI.ENV.WEBGL;
+//	PIXI.settings.PREFER_ENV = PIXI.ENV.WEBGL;
 
 	if (  (typeof window.orientation !== "undefined") || ( navigator.userAgent.indexOf('IEMobile') !== -1 )  )  isMobile = true;
 	
@@ -60,21 +61,21 @@ function setup()
 	
 	if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 )  AndroidFirefox = true;
 	
-	if (isMobile === true)  OriginalCanvasHeight = 1138-200;		
-	
-	var app = new PIXI.Application(OriginalCanvasWidth, OriginalCanvasHeight, {backgroundColor: "Black"});
+	if (isMobile === true)  OriginalCanvasHeight = 1138-200;
+
+	let app = new PIXI.Application(OriginalCanvasWidth, OriginalCanvasHeight, {backgroundColor: "Black"});
 	document.body.appendChild(app.view);
 		
-	renderer = new PIXI.Renderer({ width: OriginalCanvasWidth, height: OriginalCanvasHeight, transparent: false, autoDensity: true });
+//	renderer = new PIXI.Renderer({ width: OriginalCanvasWidth, height: OriginalCanvasHeight, transparent: false, autoDensity: true });
 	document.body.appendChild(renderer.view);
 		
 	stage = new Container();
 	id = resources["images/PacDude4.json"].textures;
 
-//	if (isMobile === false)
-//	{
-//		PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
-//	}
+	if (isMobile === false)
+	{
+		PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+	}
 
 	SixteenBitSoftLogo = null;
 	
@@ -96,7 +97,7 @@ function setup()
 	InitializeHighScores();
 	
 	NullifyAllTexts();
-	
+
 	CheckForBrowserResize(true);
 	
 	document.addEventListener("keypress", CheckForKeyPress, true);
@@ -135,13 +136,13 @@ function setup()
 		renderer.plugins.interaction.on('touchmove', function (event)
 		{ TouchInput = TouchMove; TouchScreen[event.data.identifier] = true; if (event.data.identifier === 0)  MouseCoordinates = event.data.global; else SecondTouchCoordinates = event.data.global; }, false);
 	}
-		
+
 	state = play;
 
 	LoadHighScoresAndOptions();
 	
-	SetVolumeOfAudioEngine();
-	PlayMusic("BGM-Test");
+//	SetVolumeOfAudioEngine();
+//	PlayMusic("BGM-Test");
 
 	FrameRate = 19;
 	

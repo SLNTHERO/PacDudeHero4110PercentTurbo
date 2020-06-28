@@ -1,9 +1,9 @@
 // "interface.js"
 
-var Button = new Array(7);
-var ButtonLeftArrow, ButtonRightArrow;
+let Button = new Array(7);
+let ButtonLeftArrow, ButtonRightArrow;
 
-var ButtonText = new Array(7);
+let ButtonText = new Array(7);
 ButtonText[0] = "START!";
 ButtonText[1] = "Options";
 ButtonText[2] = "How To Play";
@@ -21,16 +21,16 @@ ButtonActive[4] = false;
 ButtonActive[5] = false;
 ButtonActive[6] = false;
 
-var bText = new Array(7);
+let bText = new Array(7);
 
-var ButtonSelectedByKeyboard = 0;
-var ButtonPressed = -1;
+let ButtonSelectedByKeyboard = 0;
+let ButtonPressed = -1;
 
-var SelectorLine;
-var ArrowLeft = new Array(8);
-var ArrowRight = new Array(8);
+let SelectorLine;
+let ArrowLeft = new Array(8);
+let ArrowRight = new Array(8);
 
-var ArrowLeftActive = new Array(8);
+let ArrowLeftActive = new Array(8);
 ArrowLeftActive[0] = false;
 ArrowLeftActive[1] = false;
 ArrowLeftActive[2] = false;
@@ -40,7 +40,7 @@ ArrowLeftActive[5] = false;
 ArrowLeftActive[6] = false;
 ArrowLeftActive[7] = false;
 
-var ArrowRightActive = new Array(8);
+let ArrowRightActive = new Array(8);
 ArrowRightActive[0] = false;
 ArrowRightActive[1] = false;
 ArrowRightActive[2] = false;
@@ -50,13 +50,13 @@ ArrowRightActive[5] = false;
 ArrowRightActive[6] = false;
 ArrowRightActive[7] = false;
 
-var ArrowSetSelectedByKeyboard = 0;
-var ArrowPressed = -1;
+let ArrowSetSelectedByKeyboard = 0;
+let ArrowPressed = -1;
 
-var WhiteLine = new Array(7);
+let WhiteLine = new Array(7);
 
-var CharButton = new Array(65);
-var CharButtonText = new Array(65);
+let CharButton = new Array(65);
+let CharButtonText = new Array(65);
 
 //--------------------------------------------------------------------------------------------------------------
 function onClickChangeScreen()

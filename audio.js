@@ -1,29 +1,29 @@
 // "audio.js"
 
-var MusicVolume = .5;
-var SoundVolume = .5;
+let MusicVolume = .5;
+let SoundVolume = .5;
 
-var MusicHowler = new Array(11);
-var index;
+let MusicHowler = new Array(11);
+let index;
 for (index = 0; index < 11; index++) { MusicHowler[index] = null; }
-var CurrentMusicPlaying = -1;
+let CurrentMusicPlaying = -1;
 
-var EffectsHowler = new Array(14);
+let EffectsHowler = new Array(14);
 for (index = 0; index < 14; index++) { EffectsHowler[index] = null; }
-var	Effect1UP = 0;
-var EffectEatGhost = 1;
-var	EffectEatPellet = 2;
-var	EffectGameOver = 3;
-var	EffectGhostNewSheet = 4;
-var	EffectGhostScream = 5;
-var	EffectGhostsScared = 6;
-var	EffectMenuClick = 7;
-var	EffectMenuMove = 8;
-var	EffectMinuteBell = 9;
-var	EffectPacDeath = 10;
-var	EffectScreech = 11;
-var	EffectStart = 12;
-var	EffectWomanScream = 13;
+let	Effect1UP = 0;
+let EffectEatGhost = 1;
+let	EffectEatPellet = 2;
+let	EffectGameOver = 3;
+let	EffectGhostNewSheet = 4;
+let	EffectGhostScream = 5;
+let	EffectGhostsScared = 6;
+let	EffectMenuClick = 7;
+let	EffectMenuMove = 8;
+let	EffectMinuteBell = 9;
+let	EffectPacDeath = 10;
+let	EffectScreech = 11;
+let	EffectStart = 12;
+let	EffectWomanScream = 13;
 
 //--------------------------------------------------------------------------------------------------------------
 function SetVolumeOfAudioEngine()

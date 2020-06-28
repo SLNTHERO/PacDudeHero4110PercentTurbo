@@ -1,22 +1,22 @@
 // "logic.js"
 
-var VerySlowMode = 0;
-var SlowMode = 1;
-var NormalMode = 2;
-var FastMode = 3;
-var VeryFastMode = 4;
-var GameMode = NormalMode;
+let VerySlowMode = 0;
+let SlowMode = 1;
+let NormalMode = 2;
+let FastMode = 3;
+let VeryFastMode = 4;
+let GameMode = NormalMode;
 
-var GameJustPlayed = false;
+let GameJustPlayed = false;
 
-var ControlScheme = 0;
+let ControlScheme = 0;
 
-var TimerText = null;
+let TimerText = null;
 
-var level;
-var indexY;
+let level;
+let indexY;
 
-var MapBoards = new Array(7);
+let MapBoards = new Array(7);
 	for (level = 1; level < 7; level++)
 	{
 		if (level === 1)
@@ -239,13 +239,13 @@ var MapBoards = new Array(7);
 	
 for (level = 1; level < 7; level++)
 {
-	var changeX = 26;
-	var changeY = 0;
+	let changeX = 26;
+	let changeY = 0;
 	for (indexY = 26; indexY > 0; indexY--)
 	{
-		for (var indexX = 26; indexX > 0; indexX--)
+		for (let indexX = 26; indexX > 0; indexX--)
 		{
-			var old = MapBoards[level][changeY][changeX];
+			let old = MapBoards[level][changeY][changeX];
 			MapBoards[level][changeY][changeX] = MapBoards[level][indexX][indexY]; 
 			MapBoards[level][indexX][indexY] = old;
 			
@@ -257,7 +257,7 @@ for (level = 1; level < 7; level++)
 	}
 }
 
-var MapBoard = new Array(7);
+let MapBoard = new Array(7);
 	for (level = 0; level < 7; level++)
 	{
 		MapBoard[level] = new Array(27);
@@ -266,8 +266,8 @@ var MapBoard = new Array(7);
 				MapBoard[level][indexY] = new Array(27);
 			}
 	}
-	
-var MapReturn = new Array(7);
+
+let MapReturn = new Array(7);
 	for (level = 1; level < 7; level++)
 	{
 		if (level === 1)
@@ -488,95 +488,95 @@ var MapReturn = new Array(7);
 		}
 	}
 
-var PAUSEgame = false;
-var PauseText = null;
+let PAUSEgame = false;
+let PauseText = null;
 
-var ReadyTimer = 0;
-var ReadyText = 999;
+let ReadyTimer = 0;
+let ReadyText = 999;
 
-var GameOver = 1;
+let GameOver = 1;
 
-var PlayerPlayfieldX;
-var PlayerPlayfieldY;
-var PlayerXInBetweenTiles;
-var PlayerYInBetweenTiles;
-var PlayerDirection;
-var PlayerNextDirection;
-var PlayerSpeed;
+let PlayerPlayfieldX;
+let PlayerPlayfieldY;
+let PlayerXInBetweenTiles;
+let PlayerYInBetweenTiles;
+let PlayerDirection;
+let PlayerNextDirection;
+let PlayerSpeed;
 
-var PlayerScale = 1;
-var PlayerDied = false;
+let PlayerScale = 1;
+let PlayerDied = false;
 
-var Score;
-var ScoreText = null;
+let Score;
+let ScoreText = null;
 
-var Lives;
-var LivesText = null;
+let Lives;
+let LivesText = null;
 
-var Level;
-var LevelText = null;
+let Level;
+let LevelText = null;
 
-var MinutesLeft;
-var SecondsLeft;
+let MinutesLeft;
+let SecondsLeft;
 
-var Oneupawarded = false;
-var DeathAnimationTimer;
+let Oneupawarded = false;
+let DeathAnimationTimer;
 
-var NumberOfEatenGhosts;
+let NumberOfEatenGhosts;
 
-var NumberOfLevels = 7;
-var PowerPelletEatTimer;
-var PowerPelletTime = new Array(NumberOfLevels);
-var PowerPelletAnimationTimer;
+let NumberOfLevels = 7;
+let PowerPelletEatTimer;
+let PowerPelletTime = new Array(NumberOfLevels);
+let PowerPelletAnimationTimer;
 
-var NumberOfGhosts = 8;
-var Attack = 0;
-var Scared = 1;
-var Eaten = 2;
-var DrawGhostsFrontToBack;
-var GhostActive = new Array(NumberOfGhosts);
-var GhostStatus = new Array(NumberOfGhosts);
-var GhostAnimationFrame;
-var GhostPlayfieldX = new Array(NumberOfGhosts);
-var GhostPlayfieldY = new Array(NumberOfGhosts);
-var GhostXInBetweenTiles = new Array(NumberOfGhosts);
-var GhostYInBetweenTiles = new Array(NumberOfGhosts);
-var GhostDirection = new Array(NumberOfGhosts);
-var GhostSpeed = new Array(NumberOfGhosts);
-var GhostAttackSpeed = new Array(NumberOfGhosts);
-var GhostScaredSpeed = new Array(NumberOfGhosts);
-var GhostStamina = new Array(NumberOfGhosts);
-var GhostTired = new Array(NumberOfGhosts);
+let NumberOfGhosts = 8;
+let Attack = 0;
+let Scared = 1;
+let Eaten = 2;
+let DrawGhostsFrontToBack;
+let GhostActive = new Array(NumberOfGhosts);
+let GhostStatus = new Array(NumberOfGhosts);
+let GhostAnimationFrame;
+let GhostPlayfieldX = new Array(NumberOfGhosts);
+let GhostPlayfieldY = new Array(NumberOfGhosts);
+let GhostXInBetweenTiles = new Array(NumberOfGhosts);
+let GhostYInBetweenTiles = new Array(NumberOfGhosts);
+let GhostDirection = new Array(NumberOfGhosts);
+let GhostSpeed = new Array(NumberOfGhosts);
+let GhostAttackSpeed = new Array(NumberOfGhosts);
+let GhostScaredSpeed = new Array(NumberOfGhosts);
+let GhostStamina = new Array(NumberOfGhosts);
+let GhostTired = new Array(NumberOfGhosts);
 
-var StopGhostOnHomeBug = new Array(NumberOfGhosts);
+let StopGhostOnHomeBug = new Array(NumberOfGhosts);
 
-var NumberOfLegosOnLevel = new Array(5);
+let NumberOfLegosOnLevel = new Array(5);
 NumberOfLegosOnLevel[0] = 0;
 NumberOfLegosOnLevel[1] = 0;
 NumberOfLegosOnLevel[2] = 0;
 NumberOfLegosOnLevel[3] = 0;
 NumberOfLegosOnLevel[4] = 0;
 
-var NumberOfPelletsOnLevel = new Array(5);
+let NumberOfPelletsOnLevel = new Array(5);
 NumberOfPelletsOnLevel[0] = 0;
 NumberOfPelletsOnLevel[1] = 0;
 NumberOfPelletsOnLevel[2] = 0;
 NumberOfPelletsOnLevel[3] = 0;
 NumberOfPelletsOnLevel[4] = 0;
 
-var CurrentNumberOfPelletsEaten = 0;
+let CurrentNumberOfPelletsEaten = 0;
 
-var LevelNotCleared = 0;
-var LevelCleared = 2;
-var LevelStatus = LevelNotCleared;
+let LevelNotCleared = 0;
+let LevelCleared = 2;
+let LevelStatus = LevelNotCleared;
 
-var oppositeDirection;
-var findDirectionTimer;
-var searchY;
-var searchX;
-var scaredIndex;
-var inbetweenY;
-var inbetweenX;
+let oppositeDirection;
+let findDirectionTimer;
+let searchY;
+let searchX;
+let scaredIndex;
+let inbetweenY;
+let inbetweenX;
 
 //-------------------------------------------------------------------------------------------------
 function SetupForNewGame()

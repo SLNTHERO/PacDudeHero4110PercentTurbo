@@ -1,112 +1,112 @@
-// ""visuals.js"
+// "visuals.js"
 
-var FPS = 0;
-var FPSText;
+let FPS = 0;
+let FPSText;
 
-var FrameRate = 16;
+let FrameRate = 16;
 
-var FrameCount = 0;
+let FrameCount = 0;
 
-var CurrentTime = new Date().getTime();
-var NextSecond = CurrentTime+1000;
+let CurrentTime = new Date().getTime();
+let NextSecond = CurrentTime+1000;
 
-var FPSmessage;
+let FPSmessage;
 
-var TextSprites = new Array(100);
-var CurrentTextSpriteIndex = 7;
+let TextSprites = new Array(100);
+let CurrentTextSpriteIndex = 7;
 
-var TextLeft = -1;
-var TextCenter = 0;
-var TextRight = 1;
+let TextLeft = -1;
+let TextCenter = 0;
+let TextRight = 1;
 
-var AndroidPortrait = 0;
-var AndroidLandscape = 1;
-var AndroidOrientation = null;
+let AndroidPortrait = 0;
+let AndroidLandscape = 1;
+let AndroidOrientation = null;
 
-var index;
+let indexVisuals;
 
-var ScreenFadeBlackBox = null;
-var SixteenBitSoftLogo;
-var titleBG, PDH4Logo, PixiJSLogo, FloppyDisk;
+let ScreenFadeBlackBox = null;
+let SixteenBitSoftLogo;
+let titleBG, PDH4Logo, PixiJSLogo, FloppyDisk;
 
-var PacDudeFrames = new Array(5);
-for (index = 1; index < 5; index++)
+let PacDudeFrames = new Array(5);
+for (indexVisuals = 1; indexVisuals < 5; indexVisuals++)
 {
-	PacDudeFrames[index] = new Array(6);
-}	
+	PacDudeFrames[indexVisuals] = new Array(6);
+}
 
-var PacDudePowerUp = new Array(5);
+let PacDudePowerUp = new Array(5);
 PacDudePowerUp[0] = null;
 PacDudePowerUp[1] = null;
 PacDudePowerUp[2] = null;
 PacDudePowerUp[3] = null;
 PacDudePowerUp[4] = null;
 
-var GhostRedPlusEyes = new Array(2);
-var PowerPellet;
+let GhostRedPlusEyes = new Array(2);
+let PowerPellet;
 
-var MsPacDude;
-var GhostRedPlusEyesIntro = new Array(2);
+let MsPacDude;
+let GhostRedPlusEyesIntro = new Array(2);
 
-var Legos = new Array(200);
-var Pellets = new Array(200);
-var PowerPellets = new Array(4);
-for (index = 0; index < 4; index++)
+let Legos = new Array(200);
+let Pellets = new Array(200);
+let PowerPellets = new Array(4);
+for (indexVisuals = 0; indexVisuals < 4; indexVisuals++)
 {
-	PowerPellets[index] = new Array(2);
+	PowerPellets[indexVisuals] = new Array(2);
 }
 
-var Ghosts = new Array(8);
-for (index = 0; index < 8; index++)
+let Ghosts = new Array(8);
+for (indexVisuals = 0; indexVisuals < 8; indexVisuals++)
 {
-	Ghosts[index] = new Array(4);
+	Ghosts[indexVisuals] = new Array(4);
 }
 
-var GhostsEyes = new Array(8);
-for (index = 0; index < 8; index++)
+let GhostsEyes = new Array(8);
+for (indexVisuals = 0; indexVisuals < 8; indexVisuals++)
 {
-	GhostsEyes[index] = new Array(5);
+	GhostsEyes[indexVisuals] = new Array(5);
 }
 
-var DebugGhostDir = new Array(1000);
-for (index = 0; index < 1000; index++)
+let DebugGhostDir = new Array(1000);
+for (indexVisuals = 0; indexVisuals < 1000; indexVisuals++)
 {
-	DebugGhostDir[index] = new Array(6);
+	DebugGhostDir[indexVisuals] = new Array(6);
 }
 
-var LivesChararacter;
+let LivesChararacter;
 
-var PauseBG;
+let PauseBG;
 
-var TVScreen;
+let TVScreen;
 
-var EndGhost;
-var EndPacDude;
-var EndMsPacDude;
-var EndPowerPellet;
+let EndGhost;
+let EndPacDude;
+let EndMsPacDude;
+let EndPowerPellet;
 
-var OnScreenDPad = new Array(4);
-for (index = 0; index < 4; index++)
-	OnScreenDPad[index] = null;
+let OnScreenDPad = new Array(4);
+for (indexVisuals = 0; indexVisuals < 4; indexVisuals++)
+	OnScreenDPad[indexVisuals] = null;
 
-var AudioVolumeIcon = new Array(2);
-var PauseIcon = new Array(3);
+let AudioVolumeIcon = new Array(2);
+let PauseIcon = new Array(3);
 
-var CobraLogo;
+let CobraLogo;
 
-var Audio5jsLogo;
+let Audio5jsLogo;
 
-var GamePadButton = new Array(2);
-for (index = 0; index < 2; index++)
-	GamePadButton[index] = null;
+let GamePadButton = new Array(2);
+for (indexVisuals = 0; indexVisuals < 2; indexVisuals++)
+	GamePadButton[indexVisuals] = null;
 
-var GamePadBG;
+let GamePadBG;
 
-var Star = new Array(100);
-var StarActive = new Array(100);
-var StarAlpha = new Array(100);
-var StarScale = new Array(100);
-var StarRotation = new Array(100);
+let Star = new Array(100);
+let StarActive = new Array(100);
+let StarAlpha = new Array(100);
+let StarScale = new Array(100);
+let StarRotation = new Array(100);
 
 Math.radians = function(degrees) {
   return degrees * Math.PI / 180;
@@ -146,6 +146,8 @@ function DestroyStars()
 //--------------------------------------------------------------------------------------------------------------
 function ProcessStars()
 {
+	var index;
+
 	var newMouseX = Math.floor( MouseCoordinates.x / (widthScale) );
 	var newMouseY = Math.floor( MouseCoordinates.y / (heightScale) );
 
@@ -242,8 +244,6 @@ function CheckAndroidOrientation()
 //--------------------------------------------------------------------------------------------------------------
 function CheckForBrowserResize(forceResize)
 {
-//	DONTRESIZE = true;
-	
 	if (DONTRESIZE === true)
 	{
 		renderer.resize( Math.floor(OriginalCanvasWidth), Math.floor(OriginalCanvasHeight) );

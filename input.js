@@ -1,37 +1,37 @@
 // "input.js"
 
-var KeyboardCharacterPressed = null;
+let KeyboardCharacterPressed = null;
 
-var CENTER = 0;
-var UP = 1;
-var DOWN = 2;
-var LEFT = 3;
-var RIGHT = 4;
-var JoystickDirection = CENTER;
+let CENTER = 0;
+let UP = 1;
+let DOWN = 2;
+let LEFT = 3;
+let RIGHT = 4;
+let JoystickDirection = CENTER;
 
-var DPadUPScale = 1;
-var DPadDOWNScale = 1;
-var DPadLEFTScale = 1;
-var DPadRIGHTScale = 1;
+let DPadUPScale = 1;
+let DPadDOWNScale = 1;
+let DPadLEFTScale = 1;
+let DPadRIGHTScale = 1;
 
-var OFF = 0;
-var ON = 1;
-var JoystickButtonOne = OFF;
-var JoystickButtonTwo = OFF;
+let OFF = 0;
+let ON = 1;
+let JoystickButtonOne = OFF;
+let JoystickButtonTwo = OFF;
 
-var MouseX = 0;
-var MouseY = 0;
+let MouseX = 0;
+let MouseY = 0;
 
-var TouchTwoX = 0;
-var TouchTwoY = 0;
+let TouchTwoX = 0;
+let TouchTwoY = 0;
 
-var TouchScreen = new Array(2);
-for (var index = 0; index < 2; index++)
+let TouchScreen = new Array(2);
+for (let index = 0; index < 2; index++)
 	TouchScreen[index] = false;
 
-var DelayAllUserInput = 0;
+let DelayAllUserInput = 0;
 
-var noSleep = new NoSleep();
+let noSleep = new NoSleep();
 
 //--------------------------------------------------------------------------------------------------------------
 function enableNoSleep()

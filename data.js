@@ -1,27 +1,27 @@
 // "data.js"
 
-var HTML5LocalStorageSupported = true;
+let HTML5LocalStorageSupported = true;
 
-var NewHighScoreRank = 999;
-var NewHighScoreNameIndex = 0;
-var NewHighScoreTempName = new Array(20);
-var NewHighScoreNameText;
+let NewHighScoreRank = 999;
+let NewHighScoreNameIndex = 0;
+let NewHighScoreTempName = new Array(20);
+let NewHighScoreNameText;
 
-var HighScoresName = new Array(5);
+let HighScoresName = new Array(5);
     HighScoresName[0] = new Array(10);
     HighScoresName[1] = new Array(10);
     HighScoresName[2] = new Array(10);
     HighScoresName[3] = new Array(10);
     HighScoresName[4] = new Array(10);
 
-var HighScoresLevel = new Array(5);
+let HighScoresLevel = new Array(5);
     HighScoresLevel[0] = new Array(10);
     HighScoresLevel[1] = new Array(10);
     HighScoresLevel[2] = new Array(10);
     HighScoresLevel[3] = new Array(10);
     HighScoresLevel[4] = new Array(10);
 
-var HighScoresScore = new Array(5);
+let HighScoresScore = new Array(5);
     HighScoresScore[0] = new Array(10);
     HighScoresScore[1] = new Array(10);
     HighScoresScore[2] = new Array(10);
