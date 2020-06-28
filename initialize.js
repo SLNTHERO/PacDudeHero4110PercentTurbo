@@ -1,6 +1,6 @@
 // "initialize.js"
 
-var DONTRESIZE = false;//true;//false;
+var DONTRESIZE = true;//false;
 
 var OriginalCanvasWidth = 640;
 var OriginalCanvasHeight = 480;
@@ -68,7 +68,7 @@ function setup()
 	renderer = new PIXI.Renderer({ width: OriginalCanvasWidth, height: OriginalCanvasHeight, transparent: false, autoDensity: true });
 	document.body.appendChild(renderer.view);
 		
-	stage = new Container(),
+	stage = new Container();
 	id = resources["images/PacDude4.json"].textures;
 
 //	if (isMobile === false)
