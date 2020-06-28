@@ -1,6 +1,6 @@
 // "initialize.js"
 
-var DONTRESIZE = false;
+var DONTRESIZE = false;//true;//false;
 
 var OriginalCanvasWidth = 640;
 var OriginalCanvasHeight = 480;
@@ -52,11 +52,9 @@ function SetFrameRate()
 //--------------------------------------------------------------------------------------------------------------
 function setup()
 {
-PIXI.settings.PREFER_ENV = PIXI.ENV.WEBGL;
+	PIXI.settings.PREFER_ENV = PIXI.ENV.WEBGL;
 
 	if (  (typeof window.orientation !== "undefined") || ( navigator.userAgent.indexOf('IEMobile') !== -1 )  )  isMobile = true;
-
-//isMobile = true;	
 	
 	if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1 )  AndroidChrome = true;
 	
@@ -73,10 +71,10 @@ PIXI.settings.PREFER_ENV = PIXI.ENV.WEBGL;
 	stage = new Container(),
 	id = resources["images/PacDude4.json"].textures;
 
-	if (isMobile === false)
-	{
-		PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
-	}
+//	if (isMobile === false)
+//	{
+//		PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+//	}
 
 	SixteenBitSoftLogo = null;
 	

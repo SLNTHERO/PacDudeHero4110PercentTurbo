@@ -418,7 +418,7 @@ function DisplayCobraEngineScreen()
 	{
 		ScreenDisplayTimer = 0;
 		
-		renderer.backgroundColor = PIXI.utils.rgb2hex([1, 1, 1]);
+//		renderer.backgroundColor = PIXI.utils.rgb2hex([1, 1, 1]);
 		
 		CobraLogo = new PIXI.Sprite(id["CobraLogo.png"]);
 		CobraLogo.anchor.set(0.5);
