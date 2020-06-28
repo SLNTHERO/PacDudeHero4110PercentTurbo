@@ -1,6 +1,6 @@
 // "initialize.js"
 
-let DONTRESIZE = false;//true;//false;
+let DONTRESIZE = true;//false;
 
 let OriginalCanvasWidth = 640;
 let OriginalCanvasHeight = 480;
@@ -28,6 +28,7 @@ let Container = PIXI.Container,
 	Graphics = PIXI.Graphics;
 
 const renderer = new PIXI.Renderer({ width: OriginalCanvasWidth, height: OriginalCanvasHeight, transparent: false, autoDensity: true });
+
 let stage;
 let id;
 
@@ -62,7 +63,7 @@ function setup()
 	if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 )  AndroidFirefox = true;
 	
 	if (isMobile === true)  OriginalCanvasHeight = 1138-200;
-
+/*
 	let app = new PIXI.Application(OriginalCanvasWidth, OriginalCanvasHeight, {backgroundColor: "Black"});
 	document.body.appendChild(app.view);
 		
@@ -71,6 +72,23 @@ function setup()
 		
 	stage = new Container();
 	id = resources["images/PacDude4.json"].textures;
+*/
+
+	const app = new PIXI.Application({
+		width: 640, height: 480, backgroundColor: "Black", resolution: window.devicePixelRatio || 1,
+	});
+	document.body.appendChild(app.view);
+
+	document.body.appendChild(renderer.view);
+
+	const container = new PIXI.Container();
+	app.stage.addChild(container);
+
+	stage = new Container();
+	id = resources["images/PacDude4.json"].textures;
+
+
+
 
 	if (isMobile === false)
 	{
