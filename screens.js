@@ -324,7 +324,7 @@ function DisplayBetaTestScreen()
 
 		PlaceTextOntoScreen(35, TextCenter, "''PacDude Hero IV 110% Turbo™''",320, 30, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 		PlaceTextOntoScreen(25, TextCenter, "(Version 4.5.6.x 110% Final)",320, 60, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
-		PlaceTextOntoScreen(30, TextCenter, "©2020 By Team ''www.16BitSoft.com''",320, 90, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
+		PlaceTextOntoScreen(30, TextCenter, "©2021 By Team 16BitSoft",320, 90, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 
 		WhiteLine[0] = new PIXI.Sprite(id["WhiteLine.png"]);
 		WhiteLine[0].anchor.set(0.5);
@@ -335,7 +335,7 @@ function DisplayBetaTestScreen()
 
 		PlaceTextOntoScreen(25, TextCenter, "Game *Should* Run On The Following:",320, 135, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 		PlaceTextOntoScreen(25, TextCenter, "- Win Edge/Firefox/Chrome/Opera Desktops/Notebooks -",320, 135+30, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
-		PlaceTextOntoScreen(25, TextCenter, "- Linux Firefox/Chrome Desktops/Notebooks -",320, 135+30+30, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
+		PlaceTextOntoScreen(25, TextCenter, "- Linux Chromium/Chrome/Opera Desktops/Notebooks -",320, 135+30+30, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 		PlaceTextOntoScreen(25, TextCenter, "- Android Firefox/Chrome SmartPhones/Tablets -",320, 135+30+30+30, 0, 0, 0, 0, 0, 0, .8, .8, .8, 1, 3);
 
 		WhiteLine[1] = new PIXI.Sprite(id["WhiteLine.png"]);
@@ -521,7 +521,7 @@ function DisplaySixteenBitSoftScreen()
 		PlaceTextOntoScreen(15, TextRight, "TM", 25, 330, 0, 1, 0, 0, .75, 0, 0, 0, 0, 1, 3);
 		PlaceTextOntoScreen(25, TextCenter, "''Bringing Back Old Memories From The 16Bit Era!''", 320, 350, 0, 1, 0, 0, .75, 0, 0, 0, 0, 1, 3);
 
-		PlaceTextOntoScreen(35, TextCenter, "www.16BitSoft.com", 320, 480-20, 0, 1, 0, 0, .75, 0, 0, 0, 0, 1, 3);
+		PlaceTextOntoScreen(35, TextCenter, "Team 16BitSoft", 320, 480-20, 0, 1, 0, 0, .75, 0, 0, 0, 0, 1, 3);
 
 		FPSmessage = PlaceTextOntoScreen(15, TextRight, "FPS=", 19, 10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 3);
 
@@ -650,7 +650,7 @@ function DisplayTitleScreen()
 
 		PlaceTextOntoScreen(25, TextCenter, "''"+HighScoresName[GameMode][0]+"'' Scored "+HighScoresScore[GameMode][0], 320, 170, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
 
-		PlaceTextOntoScreen(25, TextCenter, "©2020 By Team ''www.16BitSoft.com''", 320, 480-20, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
+		PlaceTextOntoScreen(25, TextCenter, "©2021 By Team 16BitSoft", 320, 480-20, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
 		PlaceTextOntoScreen(13, TextRight, "Version 4.5.6 Final", 2, 480-10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 7);
 
 		FPSmessage = PlaceTextOntoScreen(15, TextRight, "FPS=", 19, 10, 1, 1, 1, .75, .75, .75, 0, 0, 0, 1, 3);
@@ -729,13 +729,13 @@ function DisplayTitleScreen()
 		ScreenFadeStatus = FadeOut;
 		NextScreenToDisplay = AboutScreen;
 	}
-/*	else if (ButtonPressed === 5)
+	else if (ButtonPressed === 5)
 	{
 		ScreenFadeStatus = FadeOut;
 		noSleep.disable();
-		window.open('http://16bitsoft.com','_self');
+		window.open('https://fallenangelsoftware.com','_self');
 	}
-*/		
+		
 	if (ScreenFadeStatus === FadeOut && ScreenFadeAlpha === 1)
 	{
 		stage.removeChild(titleBG);
@@ -1287,7 +1287,7 @@ function SetupAboutScreenTexts()
 	StaffMaxIndex++;
 
 	AddStaffLineToBuffer(0, "''PacDude Hero IV 110% Turbo''");
-	AddStaffLineToBuffer(1, "©2020 By Team '''www.16BitSoft.com''");
+	AddStaffLineToBuffer(1, "©2021 By Team 16BitSoft");
 
 	AddStaffLineToBuffer(0, "Original Concept By:");
 	AddStaffLineToBuffer(1, "Namco®");
@@ -1338,8 +1338,8 @@ function SetupAboutScreenTexts()
 	AddStaffLineToBuffer(1, "www.Notepad-Plus-Plus.org");
 
 	AddStaffLineToBuffer(0, "PNG Sprite Graphics Made In:");
-	AddStaffLineToBuffer(1, "''NeoPaint''");
-	AddStaffLineToBuffer(1, "www.NeoSoftware.com/NPW.html");
+	AddStaffLineToBuffer(1, "''PixelNeo''");
+	AddStaffLineToBuffer(1, "https://VisualNeo.com/product/PixelNeo");
 
 	AddStaffLineToBuffer(0, "Audio Edited In:");
 	AddStaffLineToBuffer(1, "''GoldWave''");
@@ -1347,7 +1347,7 @@ function SetupAboutScreenTexts()
 
 	AddStaffLineToBuffer(0, "Game Made On A JeZxLee Pro-Built Desktop:");
 	AddStaffLineToBuffer(1, "Desktop Code Name: ''JetFire''");
-	AddStaffLineToBuffer(1, "Genuine ''openSUSE Tumbleweed KDE 64Bit'' Linux O.S.");
+	AddStaffLineToBuffer(1, "Genuine ''Manjaro KDE 64Bit'' Linux O.S.");
 	AddStaffLineToBuffer(1, "VNC'ing Into A ''Windows 10 Pro 64Bit'' Desktop");
 
 	AddStaffLineToBuffer(0, "Support Game Programmers:");
@@ -1383,7 +1383,7 @@ function SetupAboutScreenTexts()
 	AddStaffLineToBuffer(1, "''www.Itch.io''");
 	AddStaffLineToBuffer(1, "For Internet Publishing");
 
-	AddStaffLineToBuffer(0, "''A 110% By Team www.16BitSoft.com!''");
+	AddStaffLineToBuffer(0, "''A 110% By Team 16BitSoft!");
 
 	StaffMaxIndex-=1;
 
